@@ -148,14 +148,14 @@ data = dict(
         type=dataset_type,
         ann_file='data/coco/annotations/instances_val2017.json',
         img_prefix='data/coco/val2017/',
-        proposal_file='rp_val.pkl'
+        proposal_file='rp_val.pkl',
         pipeline=test_pipeline,
         ),
     test=dict(
         type=dataset_type,
         ann_file = 'data/coco/annotations/instances_val2017.json',
         img_prefix = 'data/coco/val2017/',
-        proposal_file='rp_val.pkl'
+        proposal_file='rp_val.pkl',
         pipeline=test_pipeline,
         ))
 evaluation = dict(interval=1, metric='bbox')

@@ -16,6 +16,11 @@ def parse_args():
     parser.add_argument(
         '--score-thr', type=float, default=0.3, help='bbox score threshold')
     parser.add_argument(
+        '--palette',
+        default='none',
+        choices=['coco', 'voc', 'citys', 'random', 'none', 'lvis5'],
+        help='Color palette used for visualization')
+    parser.add_argument(
         '--async-test',
         action='store_true',
         help='whether to set async options for async inference.')
@@ -25,7 +30,7 @@ def parse_args():
 
 def main(args):
     # build the model from a config file and a checkpoint file
-    model = init_detector(args.config, args.checkpoint, device=args.device)
+    model = init_detector(args.config, args.checkpoint, device=args.device, palette=args.palette)
     # test a single image
     result = inference_detector(model, args.img)
     # show the results
